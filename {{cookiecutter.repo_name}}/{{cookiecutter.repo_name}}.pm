@@ -4,6 +4,9 @@ use 5.008;
 use strict;
 use warnings;
 
+use Exporter qw(import);
+our @EXPORT_OK = qw(main);
+
 # This project uses Semantic Versioning <http://semver.org>. Major versions
 # introduce significant changes to the API, and backwards compatibility is not
 # guaranteed. Minor versions are for new features and backwards-compatible
@@ -19,6 +22,17 @@ our $VERSION = '{{ cookiecutter.project_version }}';
 $VERSION = eval $VERSION;  # runtime conversion to numeric value
 
 
+sub main {
+    # Execute the application.
+    return 0;
+}
+
+
+if (!caller) {
+    # Called from the command line, so execute main() with the command-line
+    # arguments.
+    exit main(@ARGV);
+}
 
 1;
 
