@@ -4,5 +4,6 @@
     "author_name": "",
     "author_email": "",
     "project_version": "0.000000_001",
-    "copyright_year": "2015"
+    "copyright_year": "2015",
+    "sphinx_theme": "sphinx_rtd_theme"
 }

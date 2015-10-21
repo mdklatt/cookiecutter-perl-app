@@ -28,20 +28,15 @@ perldoc command.
 
     perldoc {{ cookiecutter.module_name }}
 
-You can also look for information at:
+The module also supports the Sphinx docmentation system (requires Python; see
+reqirements-doc.txt). The `librst` build action will create reST files from the 
+module's POD documentation, and then the Sphinx documentation can be built.
 
-    RT, CPAN's request tracker (report bugs here)
-        http://rt.cpan.org/NoAuth/Bugs.html?Dist={{ cookiecutter.repo_name }}
-
-    AnnoCPAN, Annotated CPAN documentation
-        http://annocpan.org/dist/{{ cookiecutter.repo_name }}
-
-    CPAN Ratings
-        http://cpanratings.perl.org/d/{{ cookiecutter.repo_name }}
-
-    Search CPAN
-        http://search.cpan.org/dist/{{ cookiecutter.repo_name }}/
-
+    ./Build librst
+    cd doc/ && make html
+    
+L<http://sphinx-doc.org>    
+    
 
 LICENSE AND COPYRIGHT
 
