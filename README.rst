@@ -20,15 +20,18 @@ is based on the output of `Module::Starter`_.
 Template Project Features
 -------------------------
 
-* Perl 5
+* Perl 5.8+
+* `Artistic License`_
 * `Module::Build`_ package management
 * `Test::Most`_ tests
-* `Artistic License`_
+* `Sphinx`_ documentation
+* Custom Build command for generating reST documentation from POD
 
 
-..  _Test::Most: http://perldoc.perl.org/Test/More.html
-..  _Module::Build: http://search.cpan.org/~leont/Module-Build-0.4214/lib/Module/Build.pm
 ..  _Artistic License: http://www.perlfoundation.org/artistic_license_2_0
+..  _Module::Build: http://search.cpan.org/~leont/Module-Build-0.4214/lib/Module/Build.pm
+..  _Test::Most: http://perldoc.perl.org/Test/More.html
+..  _Sphinx: http://sphinx-doc.org
 
 
 Minimum Requirements
