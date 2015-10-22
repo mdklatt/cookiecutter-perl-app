@@ -1,0 +1,10 @@
+#!/usr/bin/perl
+use strict;
+use warnings;
+
+use {{cookiecutter.module_name}} qw(main);
+
+
+# Wrapper script for the {{cookiecutter.module_name}} application.
+
+exit main(@ARGV);

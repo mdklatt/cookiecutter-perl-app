@@ -28,7 +28,7 @@ sub main {
 }
 
 
-if (!caller) {
+if (not caller) {
     # Called from the command line, so execute main() with the command-line
     # arguments.
     exit main(@ARGV);

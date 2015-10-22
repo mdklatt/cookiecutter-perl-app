@@ -1,6 +1,7 @@
 {
     "repo_name": "Namespace-Application",
     "module_name": "{{ cookiecutter.repo_name|replace('-', '::') }}",
+    "script_name": "{{ cookiecutter.repo_name.split('-')[1]|lower }}",
     "author_name": "",
     "author_email": "",
     "project_version": "0.000000_001",
