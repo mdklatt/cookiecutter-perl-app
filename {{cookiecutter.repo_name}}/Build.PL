@@ -20,26 +20,25 @@ my $class = Module::Build->subclass(code => q(
     our $parser = Pod::POM->new();
     our $docroot = 'doc';  # TODO: get from project configuration 
     
-    sub make_rst {
-        # Callback for find() to convert any POD in a file to an .rst file.
-        # The POD can be a regular Perl file or a separate .pod file, but
-        # not both (e.g. if Foo.pod exists, Foo.pm should not contain any
-        # POD).
-        return if -d $_;
-        my $pom = $parser->parse_file($_);
-        return if not @{$pom->content()};
-        my $rst = $pom->present(new Pod::POM::View::Restructured->new());
-        my $rst_path = $_;
-        $rst_path =~ s/$File::Find::dir/$docroot/;  # path
-        $rst_path =~ s/\.[^\.]*$/.rst/;  # file extension
-        open my $stream, '>', $rst_path;
-        print $stream $rst;
-        close $stream;
-        print "Documentation written to $rst_path\n";
-    }
-    
-    sub ACTION_librst {
-        find({wanted => \&make_rst, no_chdir => 1}, 'lib/');
+    sub ACTION_librst {        
+        my $make_rst = sub {
+            # Callback for find() to convert any POD in a file to an .rst file.
+            # The POD can be a regular Perl file or a separate .pod file, but
+            # not both (e.g. if Foo.pod exists, Foo.pm should not contain any
+            # POD).
+            return if -d $_;
+            my $pom = $parser->parse_file($_);
+            return if not @{$pom->content()};
+            my $rst = $pom->present(new Pod::POM::View::Restructured->new());
+            my $rst_path = $_;
+            $rst_path =~ s/$File::Find::dir/$docroot/;  # path
+            $rst_path =~ s/\.[^\.]*$/.rst/;  # file extension
+            open my $stream, '>', $rst_path;
+            print $stream $rst;
+            close $stream;
+            print "Documentation written to $rst_path\n";
+        };
+        find({wanted => $make_rst, no_chdir => 1}, 'lib/');
     }
 ));
 
